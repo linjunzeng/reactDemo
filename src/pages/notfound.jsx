@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 
 
-export default class Error extends Component {
+export default class Notfound extends Component {
     render(){
         return(
             <div>
-                <h2>Error</h2>
+                <h2>Notfound</h2>
             </div>
         );
     }
