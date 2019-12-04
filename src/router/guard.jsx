@@ -1,25 +1,28 @@
 import React, { Component } from 'react'
 import {Route, withRouter } from 'react-router-dom'
+import Loadable from 'react-loadable';
+
+import Loading from '@/components/loading.jsx'
+
 
 class Guard extends Component {
-    constructor(){
-        super();
-    }
-    UNSAFE_componentWillMount (){
-        let mate = this.props.mate;
+    constructor(props){
+        super(props);
+        // 路由守卫
+        let mate = props.mate;
         
-        if(this.props.path === '/'){
-            this.props.history.replace('/index');
-        }else if(mate && mate.isLogin){
-            this.props.history.replace('/login');
+        if(mate && mate.isLogin){
+            props.history.replace('/login');
         }
+
         document.title = mate && mate.title || 'title';
     }
     render() {
-        console.log({...this.props});
-        
         return (
-            <Route  {...this.props}  />
+            <Route path={this.props.path} component={Loadable({
+                loader: () => import(`@/pages/${this.props.name}.jsx`),
+                loading: Loading
+            })} />
         )
     }
 }

@@ -3,8 +3,10 @@
     margin: 0;
     padding: 0;
     user-select:none;
+    box-sizing: border-box;
 }
 html,body{
+    position: relative;
     width: 100%;
     height: 100%;
     overflow: auto;
@@ -12,7 +14,7 @@ html,body{
 
 body{
     font-family: "Helvetica Neue","Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif;
-    font-size: 16px;
+    font-size: 1.6rem;
     color: #333;
 }
 ul,li{
@@ -41,22 +43,45 @@ input:focus,textarea:focus{
 }
 
 /* common class */
-.fl{
+:global(.fl){
     float: left;
 }
-.fr{
+:global(.fr){
     float: right;
 }
-.nf{
+:global(.nf){
     float: none;
 }
-.clearfix{
+:global(.clearfix){
     *zoom: -1;
 }
-.clearfix:after{
+:global(.clearfix:after){
     content: '';
     display: block;
     width: 0;
     height: 0;
     clear: both;
+}
+
+
+/* css media */
+@media (max-width: 320px) {
+    html{
+        font-size: 8.75px;
+    }
+}
+@media (min-width: 320px) {
+    html{
+        font-size: 8.75px;
+    }
+}
+@media (min-width: 375px) {
+    html{
+        font-size: 10px;
+    }
+}
+@media (min-width: 414px) {
+    html{
+        font-size: 11.25px;
+    }
 }
