@@ -21,6 +21,7 @@ export default class Index extends Component {
                         <input type="password" placeholder="请输入密码" />
                     </div>
                     <div className={loginCss.item +' '+ loginCss.btn_box}>
+                        <button className={loginCss.btn} type="button" onClick={this.props.history.goBack}>取消</button>
                         <button className={loginCss.btn} type="submit">确认</button>
                     </div>
                 </form>
